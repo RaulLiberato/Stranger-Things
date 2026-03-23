@@ -60,3 +60,23 @@ gsap.from("footer", {
       end: "100% 100%",
     },
 });
+
+//Letter animation
+const grupoTextoSplit = document.querySelectorAll(".textoSplit");
+
+grupoTextoSplit.forEach((textoUnicoSplit) => {
+    const split = SplitText.create(textoUnicoSplit, {
+      type: "lines, words, chars",
+      mask: "lines",
+    });
+
+    gsap.from(split.chars, {
+      y: 40,
+      opacity: 0,
+      duration: 0.3,
+      stagger: 0.03,
+      scrollTrigger: {
+        trigger: textoUnicoSplit,
+      },
+    });
+});
